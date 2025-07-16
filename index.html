@@ -33,51 +33,53 @@
         var image_tracker = document.getElementById("IPhone");
         var version=document.getElementById("versionSelectorI").value;
       
-        if(version == "Version1I"){
+        if(version.includes("Version1I")){
           image_tracker.style.width = "150px";
           image_tracker.style.height= "300px";
           
         }
-         else if(version == "Version2I"){
+         else if(version.includes("Version2I")){
           image_tracker.style.width = "175px";
           image_tracker.style.height= "350px";
           
         }
-        else if(version == "Version3I"){
+        else if(version.includes("Version3I")){
           image_tracker.style.width = "200px";
           image_tracker.style.height= "400px";          
         }
-        else if(version == "Version4I"){
+        else if(version.includes("Version4I")){
           image_tracker.style.width = "175px";
           image_tracker.style.height= "350px";
           
         }
-        else if(version == "Version5I"){
+        else if(version.includes("Version5I")){
           image_tracker.style.width = "200px";
           image_tracker.style.height= "400px";          
         }
-        else if(version == "Version6I"){
+        else if(version.includes("Version6I")){
           image_tracker.style.width = "250px";
           image_tracker.style.height= "500px";
           
         }
-        else if(version == "Version7I"){
+        else if(version.includes("Version7I")){
           image_tracker.style.width = "300px";
           image_tracker.style.height= "600px";          
         }
 
-        //var message = "create"+ version;
         console.log(version);
         return version;
-        //var element= document.getElementById("Button");
-        //element.setAttribute("data-handler", message);
-        
-        //console.log("data-handler:", element.dataset.handler);
+
+        //If you don't need to have light/dark version, you can remove the createMessage() and include the following code
+            //var message = "create"+ version;
+            //var element= document.getElementById("Button");
+            //element.setAttribute("data-handler", message);
+            //console.log("data-handler:", element.dataset.handler);
       }
       function createMessage(){
         var version = changeI();
         var type = phoneType();
-        var message = "create" +version +type;
+        var message = "create" +type+version;
+        console.log(message);
 
         var element= document.getElementById("Button");
         element.setAttribute("data-handler", message);
@@ -89,9 +91,10 @@
     </script>
   </head>
   <body>
-    <p>UI App Template</p>
+    <p class="title">UI App Template</p>
 
-    <p>
+    <div class = "dropdowns">
+      <div class = "typeContainer">
       <label>Choose a Type: </label>
       <select id= "phoneType" onchange = createMessage()>
         <option value="IPhone">IPhone</option>
@@ -99,54 +102,45 @@
         <option value="IPhoneD">IPhone (Dark Mode)</option>
         <option value="AndroidD">Android (Dark Mode)</option>
       </select>
+    </div>
       <br>
+      <div class="versionContainer">
       <label>Choose a Version: </label>
       <select id="versionSelectorI" onchange = createMessage()>
-        <option value="Version1I">12' mini</option>
-        <option value="Version2I">12'</option>
-        <option value="Version2I">12' pro</option>
+        <option value="Version1I - name1">12' mini</option>
+        <option value="Version2I - name1">12'</option>
+        <option value="Version2I - name2">12' pro</option>
+        <option value="Version3I - name1">12' pro max</option>
 
-        <option value="Version1I">13' mini</option>
-        <option value="Version2I">13'</option>
-        <option value="Version2I">13' pro</option>
-        <option value="Version3I">13' pro max</option>
+        <option value="Version1I - name2">13' mini</option>
+        <option value="Version2I - name3">13'</option>
+        <option value="Version2I - name4">13' pro</option>
+        <option value="Version3I - name2">13' pro max</option>
 
-        <option value="Version2I">14'</option>
-        <option value="Version3I">14' plus</option>
-        <option value="Version6I">14' pro max</option>
+        <option value="Version2I - name5">14'</option>
+        <option value="Version4I - name1">14' pro</option>
+        <option value="Version3I - name3">14' plus</option>
+        <option value="Version6I - name1">14' pro max</option>
 
-        <option value="Version4I">15'</option>
-         <option value="Version6I">15' plus</option>
-         <option value="Version6I">15' pro max</option>
+        <option value="Version4I - name2">15'</option>
+        <option value="Version4I - name3">15' pro</option>
+         <option value="Version6I - name2">15' plus</option>
+         <option value="Version6I - name3">15' pro max</option>
 
-        <option value="Version4I">16'</option>
-        <option value="Version5I">16' pro</option>
-        <option value="Version6I">16' plus</option>
-        <option value="Version7I">16' pro max</option>
+        <option value="Version4I - name4">16'</option>
+        <option value="Version5I - name1">16' pro</option>
+        <option value="Version6I - name4">16' plus</option>
+        <option value="Version7I - name1">16' pro max</option>
       </select>        
-        <!-- <select id="versionSelectorI" onchange=changeI()>
-        <option value="Version1I">12' mini/13' mini</option>
-        <option value="Version2I">12'/12' pro/13'/13' pro/14'</option>
-        <option value="Version3I">13' pro max/14' plus</option>
-        <option value="Version4I">15'/16'</option>
-        <option value="Version5I">16' pro</option>
-        <option value="Version6I">14' pro max/15' plus/15' pro max/16' plus</option>
-        <option value="Version7I">16' pro max</option>
-      </select>         -->
+      </div>
 
-      <!-- <select id="versionSelectorA" onchange=change()>
-        <option value="Version1A">12' mini</option>
-        <option value="Version2A">12'</option>
-      </select>    -->
-
-    </p>
-    <img src="Iphone13miniLight.png" width="150px" height="300px" id="IPhone">
+    </div>
+    <div class="img">
+    <img src="Iphone13miniLight.png" width="150px" height="300px" id="IPhone"></div>
     
-
-    <button type="button" id = "Button" data-appearance="primary" data-handler="createVersion1I"> <!--Sets the Data of the Button to be create-text-->
+    <div class="button"><button type="button" id = "Button" data-appearance="primary" data-handler="createVersion1I"> <!--Sets the Data of the Button to be create-text-->
       Insert
-    </button>
-
+    </button></div>
 
     <script type="module" src="/src/main.ts"></script>
     <!--<script type="module" src="/src/plugin.ts"></script>-->
